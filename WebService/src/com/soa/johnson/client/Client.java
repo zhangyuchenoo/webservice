@@ -6,6 +6,16 @@ import com.soa.johnson.domains.Order;
 import com.soa.johnson.server.OrderProcess;
 
 public final class Client {
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Client() {
 	}
 
@@ -21,5 +31,8 @@ public final class Client {
 		String orderID = server.processOrder(order);
 		String mess = orderID == null ? "no order" : "orderId is" + orderID;
 		System.out.println(mess);
+		// System.out.println(ctx.getBean("client"));
+		SubClient sub = ctx.getBean("sub", SubClient.class);
+		System.out.println(sub.getName() + "\n" + sub.getSubName());
 	}
 }

@@ -6,5 +6,13 @@ http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 <jaxws:client id="orderClient" serviceClass=
-                 "com.soa.johnson.OrderProcess" address="http://localhost:8090/WebService/OrderProcess" />
+                 "com.soa.johnson.server.OrderProcess" address="http://localhost:8090/WebService/OrderProcess" />
+      <!-- 配置一个后处理类 -->           
+      <bean class="com.soa.johnson.postprocessor.MyProcessor"></bean>
+     <bean id="client" class="com.soa.johnson.client.Client" abstract="true">
+     	<property name="name" value="parent"></property>
+     </bean>
+     <bean id="sub" class="com.soa.johnson.client.SubClient" parent="client">
+     	<property name="subName" value="sub"></property>
+     </bean>
 </beans>

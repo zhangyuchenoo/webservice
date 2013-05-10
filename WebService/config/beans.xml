@@ -5,5 +5,5 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	<jaxws:endpoint id="orderProcess"
-		implementor="com.soa.johnson.impl.OrderProcessImpl" address="/OrderProcess" />
+		implementor="com.soa.johnson.server.impl.OrderProcessImpl" address="/OrderProcess" />
 </beans>
